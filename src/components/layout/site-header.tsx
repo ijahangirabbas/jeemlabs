@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { primaryNav, site } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/logo";
 import { Arrow } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
+
+/* Mobile menu is a separate chunk: desktop never downloads or parses it. */
+const MobileMenu = lazy(() =>
+  import("./mobile-menu").then((m) => ({ default: m.MobileMenu })),
+);
 
 /**
  * Restrained header. The logo carries "Home"; Start a Project is the
@@ -17,7 +22,6 @@ import { ThemeToggle } from "./theme-toggle";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Close the mobile menu on navigation — state adjusted during render,
@@ -89,7 +93,7 @@ export function SiteHeader() {
 
       <header
         className={cn(
-          "sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-sm",
+          "sticky top-0 z-40 border-b border-line bg-canvas",
           "transition-shadow duration-300",
           scrolled && "shadow-float",
         )}
@@ -152,58 +156,11 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile menu — full-surface, border-first, keyboard friendly */}
+      {/* Mobile menu — lazy chunk, loads only when first opened */}
       {open && (
-        <div
-          id="mobile-menu"
-          ref={menuRef}
-          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-line bg-canvas lg:hidden"
-        >
-          <nav aria-label="Mobile" className="shell flex flex-col py-6">
-            <ul className="flex flex-col">
-              {primaryNav.map((item, i) => (
-                <li key={item.href} className="border-b border-line">
-                  <Link
-                    href={item.href}
-                    aria-current={isActive(item.href) ? "page" : undefined}
-                    className={cn(
-                      "flex min-h-14 items-center justify-between py-4 text-lg",
-                      isActive(item.href) ? "text-primary" : "text-secondary",
-                    )}
-                  >
-                    <span className="flex items-baseline gap-4">
-                      <span className="mono-meta text-xs text-muted">
-                        0{i + 1}
-                      </span>
-                      {item.label}
-                    </span>
-                    <Arrow className="size-4" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-col gap-3">
-              <Link
-                href="/start-project"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded bg-primary font-medium text-inverse"
-              >
-                Start a Project
-                <Arrow className="size-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center justify-center rounded border border-line-strong font-medium text-primary"
-              >
-                Contact
-              </Link>
-              <div className="mt-2 flex items-center justify-between">
-                <span className="mono-label text-muted">{site.availability}</span>
-                <ThemeToggle />
-              </div>
-            </div>
-          </nav>
-        </div>
+        <Suspense fallback={null}>
+          <MobileMenu items={primaryNav} pathname={pathname} />
+        </Suspense>
       )}
       </header>
     </>

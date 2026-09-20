@@ -41,56 +41,51 @@ export default function HomePage() {
         {/* Receding engineering grid — structure, not wallpaper */}
         <div
           aria-hidden="true"
-          className="grid-field-fade grid-drift absolute inset-0"
+          className="grid-field-fade absolute inset-0"
         />
 
         <div className="shell relative pt-16 pb-14 lg:pt-24 lg:pb-16">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
             <div className="flex flex-col gap-8 lg:col-span-8">
-              <Reveal className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {/* Above the fold: no Reveal wrappers — the h1 is the LCP
+                  element and must paint at parse time, not after hydration. */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <span className="mono-label text-primary">JEEM LABS</span>
                 <Signal state={site.availability} pulse />
                 <span aria-hidden="true" className="hidden h-3 w-px bg-line-strong sm:block" />
                 <span className="mono-meta hidden text-[11px] text-muted sm:block">
                   EST / 2026 · GLOBAL / REMOTE
                 </span>
-              </Reveal>
+              </div>
 
-              <Reveal delay={80}>
-                <h1
-                  id="hero-heading"
-                  className="t-hero max-w-[15ch] text-primary text-balance"
-                >
-                  We engineer software around your{" "}
-                  <span className="underline decoration-accent decoration-[3px] underline-offset-[0.14em]">
-                    ambition.
-                  </span>
-                </h1>
-              </Reveal>
-
-              <Reveal delay={140}>
-                <p className="t-lede max-w-xl">
-                  Custom software, AI systems and digital products designed
-                  around real business problems — for founders, startups and
-                  established organisations alike.
-                </p>
-              </Reveal>
-
-              <Reveal
-                delay={200}
-                className="flex flex-col gap-4 sm:flex-row sm:items-center"
+              <h1
+                id="hero-heading"
+                className="t-hero max-w-[15ch] text-primary text-balance"
               >
+                We engineer software around your{" "}
+                <span className="underline decoration-accent decoration-[3px] underline-offset-[0.14em]">
+                  ambition.
+                </span>
+              </h1>
+
+              <p className="t-lede max-w-xl">
+                Custom software, AI systems and digital products designed
+                around real business problems — for founders, startups and
+                established organisations alike.
+              </p>
+
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <ButtonLink href="/start-project" size="lg" arrow>
                   Start a Project
                 </ButtonLink>
                 <ButtonLink href="/work" size="lg" variant="secondary">
                   Explore our Work
                 </ButtonLink>
-              </Reveal>
+              </div>
             </div>
 
             {/* System panel — the company as a legible machine */}
-            <Reveal delay={240} className="lg:col-span-4">
+            <div className="lg:col-span-4">
               <div className="relative rounded-lg border border-line bg-surface/85">
                 <Ticks />
                 <div className="flex items-center justify-between border-b border-line px-5 py-3">
@@ -120,7 +115,7 @@ export default function HomePage() {
                   </div>
                 </dl>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* One-shot signal sweep: the line draws, the nuqta travels once. */}

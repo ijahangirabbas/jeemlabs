@@ -3,6 +3,7 @@ import { Signal } from "@/components/ui/signal";
 import { Reveal } from "@/components/ui/reveal";
 import { Ticks } from "@/components/ui/ticks";
 import { site } from "@/content/site";
+import { copyrightYear } from "@/lib/cached";
 
 /**
  * Final conversion band. One invitation, one action, one honest signal.
@@ -15,6 +16,7 @@ export function CTASection({
   title?: string;
   body?: string;
 }) {
+  const year = copyrightYear();
   return (
     <section aria-labelledby="cta-heading" className="shell py-16 lg:py-24">
       <Reveal>
@@ -30,7 +32,7 @@ export function CTASection({
             aria-hidden="true"
             className="mono-meta absolute right-5 top-4 text-[10px] text-offwhite-100/40"
           >
-            REF / {new Date().getFullYear()}
+            REF / {year}
           </span>
           <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6">
             <Signal state={site.availability} pulse className="text-offwhite-100/70" />
