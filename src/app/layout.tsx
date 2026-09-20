@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
+<<<<<<< HEAD
 import localFont from "next/font/local";
+=======
+import { GeistMono } from "geist/font/mono";
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 import "./globals.css";
 import { site } from "@/content/site";
 import { organizationSchema } from "@/lib/seo";
@@ -9,6 +13,7 @@ import { ThemeScript } from "@/components/layout/theme-script";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
+<<<<<<< HEAD
 /*
  * Self-hosted variable fonts.
  * Sans (geist package) carries the LCP text → preloaded by Next.
@@ -22,6 +27,8 @@ const geistMono = localFont({
   preload: false,
 });
 
+=======
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -51,7 +58,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+<<<<<<< HEAD
       className={`no-js ${GeistSans.variable} ${geistMono.variable}`}
+=======
+      className={`no-js ${GeistSans.variable} ${GeistMono.variable}`}
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
       suppressHydrationWarning
     >
       <head>

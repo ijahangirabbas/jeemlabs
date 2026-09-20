@@ -628,6 +628,15 @@
     animation: travel-dot-once 1100ms var(--ease-in-out-quint) 350ms both;
   }
 
+<<<<<<< HEAD
 
+=======
+  /* Slow, single-purpose drift for the hero grid — barely perceptible. */
+  @keyframes grid-drift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 72px 72px, 72px 72px; }
+  }
+  .grid-drift { animation: grid-drift 60s linear infinite; }
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 }
 

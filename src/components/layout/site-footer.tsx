@@ -1,12 +1,19 @@
 import Link from "next/link";
 import { footerNav, site } from "@/content/site";
+<<<<<<< HEAD
 import { copyrightYear } from "@/lib/cached";
+=======
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 import { LogoMark } from "@/components/ui/logo";
 import { Signal } from "@/components/ui/signal";
 
 
 export function SiteFooter() {
+<<<<<<< HEAD
   const year = copyrightYear();
+=======
+  const year = new Date().getFullYear();
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 
   return (
     <footer className="border-t border-line bg-canvas-secondary">
