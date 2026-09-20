@@ -22,4 +22,10 @@ next-env.d.ts
 *.pem
 /coverage
 .vercel
+<<<<<<< HEAD
 docs
+=======
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19

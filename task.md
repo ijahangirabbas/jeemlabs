@@ -1,0 +1,23 @@
+# Task: Transform JEEM LABS into a Visually Magnetic, Elite Website
+
+- [ ] Align on Implementation Plan with User <!-- id: 0 -->
+  - [ ] Review Typography Direction (Editorial Serif vs Modern Tech Grotesk) <!-- id: 1 -->
+  - [ ] Review Visual Atmosphere (Atmospheric Lighting, Glassmorphism, Materiality) <!-- id: 2 -->
+  - [ ] Review Showcase Strategy (Interactive Engineering Demos vs Client Mockups) <!-- id: 3 -->
+- [ ] Phase 1: Design Tokens & Visual Materiality Foundations <!-- id: 4 -->
+  - [ ] Add spring cubic-bezier curves, radiant glow tokens, and glassmorphism in `globals.css` <!-- id: 5 -->
+  - [ ] Add light-sweep reflection and noise texture utilities <!-- id: 6 -->
+  - [ ] Configure display typography in `layout.tsx` <!-- id: 7 -->
+- [ ] Phase 2: Micro-Interactions & UI Primitives Upgrade <!-- id: 8 -->
+  - [ ] Upgrade `Button` / `ButtonLink` with kinetic spring physics and light sweep <!-- id: 9 -->
+  - [ ] Transform `SiteHeader` into a floating frosted glass capsule <!-- id: 10 -->
+- [ ] Phase 3: Hero Section & Copywriting Overhaul <!-- id: 11 -->
+  - [ ] Rewrite hero copy from abstract buzzwords to visceral, rhythmic problem-solving <!-- id: 12 -->
+  - [ ] Add ambient glow & live floating proof badge <!-- id: 13 -->
+  - [ ] Convert static system table into an asymmetric, tactile bento grid with spring hover lifts <!-- id: 14 -->
+- [ ] Phase 4: Interactive Engineering Showcase <!-- id: 15 -->
+  - [ ] Turn `ArchitectureDiagram` into an interactive live simulator (clickable nodes, animated data flow) <!-- id: 16 -->
+  - [ ] Build rich visual project showcase cards with tangible metrics and UI previews <!-- id: 17 -->
+- [ ] Phase 5: Verification & Quality Polish <!-- id: 18 -->
+  - [ ] Verify light and dark mode parity <!-- id: 19 -->
+  - [ ] Run `npm run typecheck`, `npm run lint`, and `npm run build` <!-- id: 20 -->

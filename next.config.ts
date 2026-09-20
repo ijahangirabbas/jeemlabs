@@ -41,14 +41,18 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+<<<<<<< HEAD
   // NOTE: cacheComponents (PPR) was evaluated and deliberately disabled —
   // every route is fully static so it added nothing measurable, and it
   // suppresses next/font preload hints for the LCP typeface. Revisit when
   // a genuinely dynamic route exists.
+=======
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
   images: {
     formats: ["image/avif", "image/webp"],
   },
   async headers() {
+<<<<<<< HEAD
     return [
       // Brand assets are stable; a filename change busts the cache.
       {
@@ -62,6 +66,9 @@ const nextConfig: NextConfig = {
       },
       { source: "/:path*", headers: securityHeaders },
     ];
+=======
+    return [{ source: "/:path*", headers: securityHeaders }];
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
   },
 };
 

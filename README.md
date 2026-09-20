@@ -53,6 +53,7 @@ and team information appear **only when real**. See
 `/start-project` and `/contact` POST to `/api/inquiry` and `/api/contact`.
 Both validate with Zod server-side, are honeypot-protected and rate
 limited. Delivery (email/CRM) is a single documented extension point in
+<<<<<<< HEAD
 each route — provider comparison and the key-injection process are
 documented in `docs/EMAIL-DELIVERY.md`; env names live in `.env.example`.
 
@@ -62,6 +63,9 @@ The site is treated as a performance artifact: findings, fixes and the
 standing budget (LCP ≤ 2.5s, one preloaded font, JS-island allowlist)
 are documented in `docs/PERFORMANCE.md`, including decisions that were
 evaluated and deliberately rejected (PPR, homepage splitting).
+=======
+each route — see `.env.example`.
+>>>>>>> d58af21b6b29b239a7ff57e76378242c1a1dcd19
 
 ### Environment
 

@@ -2,11 +2,11 @@
   "name": "thejeemlabs",
   "version": "1.0.0",
   "private": true,
-  "description": "JEEM LABS — engineering-led technology company website (thejeemlabs.com)",
+  "description": "JEEM LABS \u2014 engineering-led technology company website (thejeemlabs.com)",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node api.js && next dev",
+    "build": "node api.js && next build",
+    "start": "node api.js && next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
